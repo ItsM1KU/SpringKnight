@@ -18,13 +18,17 @@ public class PlayerController : MonoBehaviour
     private float jumpTime;
     private bool isJumping;
 
-    // Start is called before the first frame update
+    public Transform wallCheck;
+    public LayerMask wallLayer;
+    private bool isWallSliding;
+    private float wallslidespeed = 0.2f;
+
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
@@ -67,5 +71,28 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
         }
+
+        wallSlide();
     }
+
+    private bool isWalled()
+    {
+        return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
+    }
+
+    private void wallSlide()
+    {
+        if( isWalled() && !isTouchingGround)
+        {
+            isWallSliding = true;
+            player.velocity = new Vector2(player.velocity.x, Mathf.Clamp(player.velocity.y, -wallslidespeed, float.MaxValue));
+        }
+        else
+        {
+            isWallSliding = false;
+        }
+    }
+        
+
+        
 }
