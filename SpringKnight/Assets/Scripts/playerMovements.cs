@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingRight = true;
 
     private bool isWallSliding;
-    private float wallSlidingSpeed = 2f;
+    private float wallSlidingSpeed = 5f;
 
     private bool isWallJumping;
     private float wallJumpingDirection;
