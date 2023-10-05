@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -22,6 +23,23 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
+
+
+    private Vector3 startingPosition;
+
+    private void Start()
+    {
+        startingPosition = transform.position;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Obstacle"))
+        {
+            transform.position = startingPosition;
+            
+        }
+    }
 
     private void Update()
     {
