@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 280192969}
   - component: {fileID: 280192968}
   - component: {fileID: 280192967}
+  - component: {fileID: 280192972}
   m_Layer: 0
   m_Name: Bandit
   m_TagString: Untagged
@@ -156,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 280192969}
+  anim: {fileID: 280192972}
   movespeed: 5
   jumpspeed: 5
   groundCheck: {fileID: 1662104079}
@@ -233,7 +235,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &280192970
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -302,6 +304,27 @@ Transform:
   - {fileID: 1662104079}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &280192972
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280192966}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cbafe4b7d583a914f89b7cf9ec6eb5d5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1348480961
 GameObject:
   m_ObjectHideFlags: 0

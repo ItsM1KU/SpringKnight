@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] Animator anim;
     [SerializeField] float movespeed = 5f;
     [SerializeField] float jumpspeed = 2f;
     [SerializeField] Transform groundCheck;
@@ -16,11 +17,34 @@ public class PlayerController : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         jump();
+
+        moveAnimations();
     }
 
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * movespeed, rb.velocity.y);
+    }
+
+    void moveAnimations()
+    {
+        if (horizontal != 0)
+        {
+            anim.SetFloat("Horizontal", horizontal);
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
+        }
+        if (isGrounded())
+        {
+            anim.SetBool("isJumping", false);
+        }
+        else
+        {
+            anim.SetBool("isJumping", true);
+        }
     }
 
     void jump()
