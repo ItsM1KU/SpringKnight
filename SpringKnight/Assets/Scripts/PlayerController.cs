@@ -13,7 +13,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
 
     private float horizontal;
+    private Vector3 startingPosition;
 
+
+    private void Start()
+    {
+        startingPosition = transform.position;
+    }
     private void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -64,5 +70,13 @@ public class PlayerController : MonoBehaviour
     bool isGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Fireball")
+        {
+            transform.position = startingPosition;
+        }
     }
 }
