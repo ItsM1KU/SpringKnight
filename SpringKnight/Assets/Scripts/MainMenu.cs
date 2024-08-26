@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] AudioSource backgroundMusic;
 
-    private bool musicPaused = true;
+    private bool musicPaused = false;
 
     public void PauseMusicOnClick()
     {
@@ -15,11 +15,11 @@ public class MainMenu : MonoBehaviour
 
         if (musicPaused)
         {
-            backgroundMusic.Pause();
+            backgroundMusic.Play();
         }
         else
         {
-            backgroundMusic.Play();
+            backgroundMusic.Pause();
         }
 
     }
