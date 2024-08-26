@@ -9,6 +9,7 @@ public class FinalChest : MonoBehaviour
 
     private Animator anim;
     [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] TextMeshProUGUI interactText;
     private float elapsedTime;
     private int minutes;
     private int seconds;
@@ -31,9 +32,10 @@ public class FinalChest : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             anim.SetBool("isOpening", true);
-            SceneManager.LoadScene("EndScene");
-            PlayerPrefs.SetInt("TimeMins", minutes);
-            PlayerPrefs.SetInt("TimeSecs", seconds);
+                SceneManager.LoadScene("EndScene");
+                PlayerPrefs.SetInt("TimeMins", minutes);
+                PlayerPrefs.SetInt("TimeSecs", seconds);
+            
         }
     }
 }

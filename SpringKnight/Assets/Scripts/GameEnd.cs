@@ -19,4 +19,9 @@ public class GameEnd : MonoBehaviour
     {
         TimeText.text = "Time taken to complete the game is " + mins.ToString() + " Minutes and " + secs.ToString() + " Seconds";
     }
+
+    public void mainmenu()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
 }
