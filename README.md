@@ -1,4 +1,4 @@
- ![](https://github.com/ItsM1KU/TidyTides/blob/main/demo.gif)
+ ![]((https://github.com/ItsM1KU/SpringKnight/blob/main/demoSpringKnight.gif))
 
 Spring knight is a 2D Platform game which is inspired by Jump king.
 
